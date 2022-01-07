@@ -131,7 +131,7 @@
 
             _pdfView.scaleFactor = scale;
 
-            _pdfView.minScaleFactor = scale;
+            _pdfView.minScaleFactor = 1.0;
             _pdfView.maxScaleFactor = 4.0;
 
             dispatch_async(dispatch_get_main_queue(), ^{
