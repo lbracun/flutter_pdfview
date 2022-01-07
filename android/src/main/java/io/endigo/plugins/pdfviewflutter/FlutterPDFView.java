@@ -59,7 +59,7 @@ public class FlutterPDFView implements PlatformView, MethodCallHandler {
                     .pageSnap(getBoolean(params, "pageSnap"))
                     .pageFitPolicy(getFitPolicy(params))
                     .enableAnnotationRendering(true)
-                    .spacing(getDouble(params, "spacing"))
+                    .spacing(getInt(params, "spacing"))
                     .linkHandler(linkHandler).
                     enableAntialiasing(false)
                     // .fitEachPage(getBoolean(params,"fitEachPage"))
@@ -186,10 +186,6 @@ public class FlutterPDFView implements PlatformView, MethodCallHandler {
 
     int getInt(Map<String, Object> params, String key) {
         return params.containsKey(key) ? (int) params.get(key) : 0;
-    }
-
-    double getDouble(Map<String, Object> params, String key) {
-        return params.containsKey(key) ? (double) params.get(key) : 0;
     }
 
     FitPolicy getFitPolicy(Map<String, Object> params) {

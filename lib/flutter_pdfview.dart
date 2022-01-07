@@ -73,7 +73,7 @@ class PDFView extends StatefulWidget {
   final String? password;
   final bool nightMode;
   final bool autoSpacing;
-  final double spacing;
+  final int spacing;
   final bool pageFling;
   final bool pageSnap;
   final int defaultPage;
@@ -191,7 +191,7 @@ class _PDFViewSettings {
   final String? password;
   final bool? nightMode;
   final bool? autoSpacing;
-  final double? spacing;
+  final int? spacing;
   final bool? pageFling;
   final bool? pageSnap;
   final int? defaultPage;
