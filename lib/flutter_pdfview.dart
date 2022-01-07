@@ -32,6 +32,7 @@ class PDFView extends StatefulWidget {
     this.password,
     this.nightMode = false,
     this.autoSpacing = true,
+    this.spacing = 0,
     this.pageFling = true,
     this.pageSnap = true,
     this.fitEachPage = true,
@@ -72,6 +73,7 @@ class PDFView extends StatefulWidget {
   final String? password;
   final bool nightMode;
   final bool autoSpacing;
+  final double spacing;
   final bool pageFling;
   final bool pageSnap;
   final int defaultPage;
@@ -161,6 +163,7 @@ class _PDFViewSettings {
       this.password,
       this.nightMode,
       this.autoSpacing,
+      this.spacing,
       this.pageFling,
       this.pageSnap,
       this.defaultPage,
@@ -175,6 +178,7 @@ class _PDFViewSettings {
         password: widget.password,
         nightMode: widget.nightMode,
         autoSpacing: widget.autoSpacing,
+        spacing: widget.spacing,
         pageFling: widget.pageFling,
         pageSnap: widget.pageSnap,
         defaultPage: widget.defaultPage,
@@ -187,6 +191,7 @@ class _PDFViewSettings {
   final String? password;
   final bool? nightMode;
   final bool? autoSpacing;
+  final double? spacing;
   final bool? pageFling;
   final bool? pageSnap;
   final int? defaultPage;
@@ -201,6 +206,7 @@ class _PDFViewSettings {
       'password': password,
       'nightMode': nightMode,
       'autoSpacing': autoSpacing,
+      'spacing': spacing,
       'pageFling': pageFling,
       'pageSnap': pageSnap,
       'defaultPage': defaultPage,

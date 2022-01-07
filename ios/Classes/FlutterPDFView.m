@@ -60,6 +60,7 @@
         }];
         
         BOOL autoSpacing = [args[@"autoSpacing"] boolValue];
+        float spacing = [args[@"spacing"] floatValue];
         BOOL pageFling = [args[@"pageFling"] boolValue];
         BOOL enableSwipe = [args[@"enableSwipe"] boolValue];
         _preventLinkNavigation = [args[@"preventLinkNavigation"] boolValue];
@@ -95,6 +96,8 @@
             _pdfView.displayMode = enableSwipe ? kPDFDisplaySinglePageContinuous : kPDFDisplaySinglePage;
             _pdfView.document = document;
             _pdfView.autoScales = autoSpacing;
+            _pdfView.PDFEdgeInsets = UIEdgeInsetsMake(0, 0, spacing, 0);
+            
             NSString* password = args[@"password"];
             if ([password isKindOfClass:[NSString class]] && [_pdfView.document isEncrypted]) {
                 [_pdfView.document unlockWithPassword:password];
