@@ -112,7 +112,26 @@
         PDFPage* page = [document pageAtIndex: defaultPage];
         [_pdfView goToPage: page];
 
-            _pdfView.minScaleFactor = _pdfView.scaleFactorForSizeToFit;
+            CGRect pageRect = [page boundsForBox:[_pdfView displayBox]];
+
+            CGRect parentRect = [[UIScreen mainScreen] bounds];
+
+            if (frame.size.width > 0 && frame.size.height > 0) {
+                parentRect = frame;
+            }
+
+            CGFloat scale = 1.0f;
+            if (parentRect.size.width / parentRect.size.height >= pageRect.size.width / pageRect.size.height) {
+                scale = parentRect.size.height / pageRect.size.height;
+            } else {
+                scale = parentRect.size.width / pageRect.size.width;
+            }
+
+            NSLog(@"scale %f", scale);
+
+            _pdfView.scaleFactor = scale;
+
+            _pdfView.minScaleFactor = scale;
             _pdfView.maxScaleFactor = 4.0;
 
             dispatch_async(dispatch_get_main_queue(), ^{
