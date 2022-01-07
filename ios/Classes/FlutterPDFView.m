@@ -50,7 +50,7 @@
         NSString* channelName = [NSString stringWithFormat:@"plugins.endigo.io/pdfview_%lld", viewId];
         _channel = [FlutterMethodChannel methodChannelWithName:channelName binaryMessenger:messenger];
         
-        _pdfView = [[PDFView alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
+        _pdfView = [[PDFView alloc] initWithFrame: frame];
         __weak __typeof__(self) weakSelf = self;
         _pdfView.delegate = self;
         
