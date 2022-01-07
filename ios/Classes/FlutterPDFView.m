@@ -112,7 +112,7 @@
         PDFPage* page = [document pageAtIndex: defaultPage];
         [_pdfView goToPage: page];
 
-            _pdfView.minScaleFactor = _pdfView.scaleFactorForSizeToFit;
+            _pdfView.minScaleFactor = 1.0;
             _pdfView.maxScaleFactor = 4.0;
 
             dispatch_async(dispatch_get_main_queue(), ^{
