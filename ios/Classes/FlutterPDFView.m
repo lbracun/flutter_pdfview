@@ -116,22 +116,20 @@
 
             CGRect parentRect = [[UIScreen mainScreen] bounds];
 
-            if (frame.size.width > 0 && frame.size.height > 0) {
-                parentRect = frame;
-            }
+            CGFloat width = parentRect.size.width;
 
-            CGFloat scale = 1.0f;
-            if (parentRect.size.width / parentRect.size.height >= pageRect.size.width / pageRect.size.height) {
-                scale = parentRect.size.height / pageRect.size.height;
+            if (width < 428) {
+                width = 310;
             } else {
-                scale = parentRect.size.width / pageRect.size.width;
+                width = width - 116;
             }
 
-            NSLog(@"scale %f", scale);
+            CGFloat scale = width / pageRect.size.width;
+            
 
             _pdfView.scaleFactor = scale;
 
-            //_pdfView.minScaleFactor = scale;
+            _pdfView.minScaleFactor = scale;
             _pdfView.maxScaleFactor = 4.0;
 
             dispatch_async(dispatch_get_main_queue(), ^{
