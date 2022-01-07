@@ -96,7 +96,7 @@
             _pdfView.displayMode = enableSwipe ? kPDFDisplaySinglePageContinuous : kPDFDisplaySinglePage;
             _pdfView.document = document;
             _pdfView.autoScales = autoSpacing;
-            _pdfView.pageBreakMargins(0, 0, spacing, 0);
+            _pdfView.pageBreakMargins.bottom = spacing;
             
             NSString* password = args[@"password"];
             if ([password isKindOfClass:[NSString class]] && [_pdfView.document isEncrypted]) {
